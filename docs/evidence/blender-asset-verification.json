@@ -1,0 +1,120 @@
+{
+  "verified_at": "2026-09-29T21:56:39.907944+00:00",
+  "transport": "Python MCP SDK ClientSession -> mcp-for-blender 2.1.1 stdio -> localhost Blender addon",
+  "tools_used": [
+    "get_scene_info",
+    "execute_blender_code"
+  ],
+  "user_prompt_for_final_render": "키보드 자판은 어느정도 투명하게 해주세요. 보기좋게",
+  "safe_mode": true,
+  "telemetry": false,
+  "render_result": "Code executed successfully: Info: Saved as \"keyboard-studio.blend\"\n{\"stage\": \"model_saved\", \"scene\": \"MAIHANGUL Keyboard Studio\", \"key_count\": 61, \"objects\": 158, \"previous_scene\": \"MAIHANGUL MCP empty verification\", \"blend\": \"C:/TEST/MAIHANGUL/design/blender/keyboard-studio.blend\", \"image\": \"C:/TEST/MAIHANGUL/public/assets/keyboard-studio.webp\", \"version\": \"5.2.1 LTS\"}\n{\"stage\": \"render_complete\", \"path\": \"C:/TEST/MAIHANGUL/public/assets/keyboard-studio.webp\", \"width\": 1400, \"height\": 900}\n",
+  "font_cleanup_result": "Code executed successfully: Info: Saved as \"keyboard-studio.blend\"\n{\"removed_unused_owned_curves\": 172, \"removed_font_references\": [\"Malgun Gothic Bold\", \"Noto Sans CJK KR Medium\"], \"remaining_fonts\": [\"Bfont Regular\"]}\n",
+  "scene": {
+    "scene": "MAIHANGUL Keyboard Studio",
+    "scenes": [
+      {
+        "name": "MAIHANGUL Keyboard Studio",
+        "objects": 158
+      },
+      {
+        "name": "MAIHANGUL MCP empty verification",
+        "objects": 0
+      }
+    ],
+    "objects": 158,
+    "key_count": 61,
+    "key_legends": {
+      "Q": "ㅂ",
+      "W": "ㅈ",
+      "E": "ㄷ",
+      "R": "ㄱ",
+      "T": "ㅅ",
+      "Y": "ㅛ",
+      "U": "ㅕ",
+      "I": "ㅑ",
+      "O": "ㅐ",
+      "P": "ㅔ",
+      "A": "ㅁ",
+      "S": "ㄴ",
+      "D": "ㅇ",
+      "F": "ㄹ",
+      "G": "ㅎ",
+      "H": "ㅗ",
+      "J": "ㅓ",
+      "K": "ㅏ",
+      "L": "ㅣ",
+      "Z": "ㅋ",
+      "X": "ㅌ",
+      "C": "ㅊ",
+      "V": "ㅍ",
+      "B": "ㅠ",
+      "N": "ㅜ",
+      "M": "ㅡ"
+    },
+    "bottom_row": [
+      "Ctrl",
+      "Win",
+      "Alt",
+      "Space",
+      "Alt",
+      "Win",
+      "Menu",
+      "Ctrl"
+    ],
+    "fonts": [
+      {
+        "name": "Bfont Regular",
+        "filepath": "<builtin>",
+        "packed": false,
+        "users": 0
+      }
+    ],
+    "font_objects": 0,
+    "render": {
+      "width": 1400,
+      "height": 900,
+      "channels": 4,
+      "corner_alpha": [
+        0.0,
+        0.011764707043766975,
+        0.0,
+        0.0
+      ],
+      "center_alpha": 1.0,
+      "engine": "CYCLES",
+      "samples": 48,
+      "transparent": true
+    },
+    "blend_path": "C:\\TEST\\MAIHANGUL\\design\\blender\\keyboard-studio.blend",
+    "blender": "5.2.1 LTS"
+  },
+  "layout_parity": {
+    "rows": 5,
+    "keys": 61,
+    "koreanLegends": 26,
+    "errors": []
+  },
+  "source_font": {
+    "repository": "https://github.com/notofonts/noto-cjk",
+    "commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+    "font_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Korean/NotoSansCJKkr-Medium.otf",
+    "license_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/LICENSE",
+    "sha256": "15c12166634936c31307b91bd049d95b4ba30c248e8c389b5388f75ae8ba90d6",
+    "bytes": 16519380
+  },
+  "files": {
+    "design/blender/create-keyboard.py": {
+      "bytes": 11419,
+      "sha256": "b02c9168d59986050b9b466ed519e19472710f0c6e718ab24dc9d950ccd7a663"
+    },
+    "design/blender/keyboard-studio.blend": {
+      "bytes": 533274,
+      "sha256": "83d3875b6577d79e2613032cbbd56e32da2dbccc08ffb10deea5a4d7108dc2f0"
+    },
+    "public/assets/keyboard-studio.webp": {
+      "bytes": 144316,
+      "sha256": "c7659ea547eafac3b2a4cd007c82cab0d8e06f4ca0ed9b563abd2946160ca0dd"
+    }
+  }
+}

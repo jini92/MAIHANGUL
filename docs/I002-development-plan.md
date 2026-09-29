@@ -1,6 +1,8 @@
 # I002 · 개발 실행 계획
 
-상태: **상세 설계·로컬 티켓 준비 / 제품 구현 미실행** · 기준일: 2026-09-30
+상태: **최초 계획 보존 / 후속 개발 실행은 I004 참조** · 기준일: 2026-09-30
+
+이 문서의 PlannerOutput은 문서 전용 단계의 시작 조건과 승인 범위를 보존한다. 후속 사용자가 하네스팀 개발·독립 검수를 승인했으며 현재 실행 상태는 [I004](I004-harness-development.md), 티켓 상태는 [INDEX](tickets/INDEX.md)가 정본이다.
 
 ## 1. PlannerOutput
 
@@ -21,7 +23,7 @@
 
 [I001](I001-initialization.md)은 2026-09-29 기록으로 보존한다. 이번 시작 때 브랜치 codex/initial-setup·커밋 0·remote 없음·src/tests는 .gitkeep만·baseline scaffold를 직접 확인했다. 기존 tickets 디렉터리는 없었다.
 
-진행 중 사용자가 GitHub 저장소 생성을 지시했고, [jini92/MAIHANGUL](https://github.com/jini92/MAIHANGUL)을 비공개로 생성했다. master 요청에 따라 로컬 브랜치는 **master**, origin은 해당 저장소로 연결했다. 원격은 빈 저장소이며 default_branch 변경 API가 422를 반환했다. 원격 기본 브랜치의 현재 메타데이터는 main이고, 최초 master push 후 변경해야 한다. 커밋·push·Issue 발행·배포는 현재 미실행이다.
+진행 중 사용자가 GitHub 저장소 생성을 지시했고, [jini92/MAIHANGUL](https://github.com/jini92/MAIHANGUL)을 비공개로 생성했다. master 요청에 따라 로컬 브랜치는 **master**, origin은 해당 저장소로 연결했다. 빈 저장소 단계에서는 default_branch 변경 API가 422를 반환했다. 이후 명시 승인으로 최초 문서 커밋 `01288d8`을 master에 push하고 원격 기본 브랜치 master와 Issue 20건을 확인했다. 상세 실행은 [발행 기록](tickets/PUBLISHING.md)을 따른다. 배포는 하지 않았다.
 
 ## 3. 요구사항 → 설계 → 티켓 → 검증
 
@@ -114,14 +116,14 @@ flowchart TD
   S --> T["020 후속 파일럿"]
 ```
 
-## 5. 첫 개발 단계의 Ready
+## 5. 최초 개발 단계의 Ready와 후속 수용
 
 1. **[MH-001](tickets/MH-001.md)**: 한글 조합/제출의 실제 이벤트를 먼저 알아야 입력 구현을 잘못 고정하지 않는다.
 2. **[MH-002](tickets/MH-002.md)**: Telex/VNI를 함께 실험하여 베트남어를 뒤로 미루지 않는다.
 3. **[MH-003](tickets/MH-003.md)**: 검수·권리·세 언어 누락을 잡는 콘텐츠 계약은 앱 없이도 준비할 수 있다.
 4. **[MH-006](tickets/MH-006.md)**: 입력 실험과 별개로 작은 앱·3언어 설정 기반을 준비한다.
 
-실기 환경의 버전·설치 여부는 아직 확인 완료가 아니다. Ready 실험은 환경 점검/프로브 준비부터 착수할 수 있지만 실제 타이핑 근거 없이 완료할 수 없다. 현재 이 네 티켓도 미실행이다.
+위 목록은 첫 착수 순서다. 후속 승인으로 프로브·콘텐츠 검증기·앱 기반을 구현했고 설치 환경 일부를 읽기 전용으로 확인했다. 실제 타이핑 근거 없이 실기 티켓을 완료할 수 없다. 현재 상태는 [티켓 인덱스](tickets/INDEX.md)와 [I004](I004-harness-development.md)를 따른다.
 
 ## 6. 로컬 Kanban 반영
 
@@ -145,7 +147,7 @@ flowchart TD
 - 실기 환경/현지 조작자: MH-001/002/016의 실제 OS 증거에 필요.
 - 오디오 제작·배포 권리: 선택 음성 도입 때 필요. 텍스트 MVP는 계속 가능.
 - 실제 대상·난도·재사용: MH-020에서 관찰. 모집·연락·보상은 승인 전 미실행.
-- 최초 master commit/push와 외부 Issue 20건: [발행 준비](tickets/PUBLISHING.md)의 정확한 범위로 승인 요청. 저장소 생성은 이미 완료.
+- 최초 문서 master commit/push와 외부 Issue 20건: 사용자 승인으로 실행 완료. 실제 ID/URL은 [발행 기록](tickets/PUBLISHING.md)을 따른다. 이후 로컬 구현 결과와 원격 반영 여부는 I004에 구분한다.
 - 상표·도메인·가격·계약은 현재 결정하지 않는다.
 
 ## 8. 후속 범위와 보류 이유

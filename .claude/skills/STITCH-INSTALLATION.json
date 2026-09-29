@@ -1,0 +1,16 @@
+{
+  "sourceRepo": "https://github.com/google-labs-code/stitch-skills",
+  "commit": "0337446dadde6f8c94210444e2aa9d546126480f",
+  "license": "Apache-2.0",
+  "skills": [
+    "extract-design-md",
+    "generate-design",
+    "manage-design-system",
+    "upload-to-stitch",
+    "design-md"
+  ],
+  "installed": "2026-09-30",
+  "scope": "MAIHANGUL project",
+  "source": ".claude/skills",
+  "generated": ".codex/skills"
+}

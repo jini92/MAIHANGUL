@@ -1,6 +1,8 @@
 # D002 · 학습·게임 UX 상세 설계
 
-상태: **Draft / 미구현** · 기준일: 2026-09-30
+상태: **Draft / 개발 미리보기 구현·실제 화면 검증 대기** · 기준일: 2026-09-30
+
+현재 구현·자동 검사·독립 검수 근거는 [I004](I004-harness-development.md)를 따른다.
 
 요구사항 정본: [A001](A001-PRD.md) · 모듈 책임: [D001](D001-architecture-overview.md) · 검증: [T001](T001-validation-plan.md) · [개발 순서](I002-development-plan.md) · [티켓](tickets/INDEX.md)
 
@@ -323,3 +325,9 @@ stateDiagram-v2
 5. 모바일 전용 UX, 시간 도전, 실시간 대전, AI 대화, 교사 관리, 계정·결제는 후속 범위다. 현재 상태 전이에 이를 위한 화면을 추가하지 않는다.
 
 각 동작의 티켓·수용 기준과 실제 검증 환경은 [티켓 목록](tickets/INDEX.md), [I002](I002-development-plan.md), [T001](T001-validation-plan.md)에 연결한다. 본 문서 작성은 제품 구현·실제 IME 검증·사용성 검증 완료를 의미하지 않는다.
+
+## 12. 자판 화면 구현 보완 · 2026-09-30
+
+연습 입력란 아래에 5행 QWERTY·두벌식 자판을 표시한다. 목표 키의 위치·손가락 안내와 실제 누른 키의 시각적 표시는 채점과 분리한다. 좁은 화면에서는 자판 영역 하나에 Tab으로 진입하고 좌우 방향키·Home·End로 이동한다. 화면 전체 단축키나 가상 키 입력 기능은 추가하지 않는다.
+
+색상·키 크기·표시 계약은 [디자인 가이드](../design.md), 최초 자판 구현은 [I005](I005-keyboard-design.md), Stitch·Blender 적용 이후 실제 화면·회귀 검사·독립 검수는 [I006](I006-stitch-blender-implementation.md)에 기록한다. 기존 해석 기본 표시와 IME 확정·제출 정책을 유지한다.

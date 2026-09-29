@@ -19,3 +19,11 @@ Thumbs.db
 # Local evidence containing prompt or machine context
 .local/
 *.log
+/.codex/skills/
+
+# Blender's local recovery copies; keep the editable .blend source
+design/blender/*.blend1
+design/blender/*.blend2
+
+# Local workspace screenshot includes an account avatar
+docs/evidence/screenshots/stitch-project.png

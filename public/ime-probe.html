@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAIHANGUL · 로컬 IME 관찰</title>
+  <style>
+    body { max-width: 68rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.6 system-ui, sans-serif; color: #18372e; background: #f7f7f0; }
+    h1 { line-height: 1.2; } label { display: block; margin: 1rem 0 .3rem; }
+    input, select, button { font: inherit; padding: .6rem; border: 1px solid #6a786f; border-radius: .3rem; }
+    input { width: min(90%, 40rem); } button { margin: .5rem .3rem .5rem 0; cursor: pointer; }
+    :focus-visible { outline: 3px solid #0a705f; outline-offset: 3px; }
+    pre { height: 24rem; overflow: auto; padding: 1rem; background: #112a25; color: #e5fff0; white-space: pre-wrap; }
+    .warning { border-left: 5px solid #c58e37; padding: .6rem 1rem; background: #fff1d6; }
+  </style>
+</head>
+<body>
+  <h1>로컬 IME 관찰 도구</h1>
+  <p class="warning">개발용 고정 문구만 입력하세요. 로그는 이 탭 메모리에만 남고 서버로 보내지 않습니다. 실제 Windows IME와 물리 키보드로 수행한 로그만 실기 근거입니다. 문자열 대입·합성 이벤트·브라우저 자동 입력은 실기 검증이 아닙니다.</p>
+  <p>관찰 계약: 입력란 Enter는 제출하지 않습니다. 조합 종료 후 첫 확인은 확정값 확인만 하고, 다음 별도 확인으로 제출합니다. 이 임시 정책은 실제 IME 검증 전입니다.</p>
+  <label for="fixture">고정 문구</label>
+  <select id="fixture">
+    <option value="korean">한글 두벌식: 한 → 한국 → 한 (취소·Backspace·선택 교체 포함)</option>
+    <option value="vietnamese">베트남어 Telex / VNI: chào → chao → chào</option>
+    <option value="english">영문: cat → Cat → cat. → cat  dog</option>
+    <option value="nfc">NFC 비교 전용: chào / chào (실기 타이핑과 별도)</option>
+  </select>
+  <label for="method">실제로 사용한 입력 방식</label>
+  <select id="method">
+    <option value="unknown">미확인</option><option>Windows Korean 2-set</option><option>Windows Vietnamese Telex</option><option>Windows Vietnamese VNI</option><option>English keyboard</option><option>Synthetic / DOM assignment (not OS evidence)</option>
+  </select>
+  <p>OS·브라우저·입력기 정확한 버전과 물리 키보드 사용 여부는 별도 검수 기록에 적으세요. 아래 userAgent는 입력기 활성화의 증거가 아닙니다.</p>
+  <button id="start" type="button">새 관찰 시작 · 로그 초기화</button>
+  <label for="answer">관찰 입력 (새 관찰을 시작한 뒤 입력)</label>
+  <div id="field"></div>
+  <button id="submit" type="button">확정 입력 확인 / 제출</button>
+  <button id="next" type="button">문제 전환 · epoch 증가</button>
+  <button id="copy" type="button">로그 JSON 복사</button>
+  <button id="clear" type="button">로그 삭제</button>
+  <p id="status" role="status" aria-live="polite">미시작 · 아직 관찰 로그가 없습니다.</p>
+  <pre id="log" aria-label="관찰 이벤트 로그"></pre>
+  <script>
+    const fixture = document.querySelector('#fixture');
+    const method = document.querySelector('#method');
+    const logNode = document.querySelector('#log');
+    const status = document.querySelector('#status');
+    let records = [], epoch = 0, state = 'stable', submissions = 0, recording = false, field;
+    const header = () => ({
+      evidenceKind: method.value.startsWith('Synthetic') ? 'synthetic-only' : 'operator-declared-not-independently-verified',
+      recordedAt: new Date().toISOString(), userAgent: navigator.userAgent,
+      fixture: fixture.value, declaredInputMethod: method.value,
+      policy: 'provisional-explicit-composition-confirmation', events: records,
+    });
+    function record(event, eventEpoch, element, extra = {}) {
+      if (!recording) return;
+      records.push({
+        event: event.type, time: performance.now(), eventEpoch, currentEpoch: epoch,
+        stale: eventEpoch !== epoch || element !== field, state,
+        value: element.value, data: event.data ?? null, key: event.key ?? null,
+        isComposing: event.isComposing ?? null, inputType: event.inputType ?? null,
+        isTrusted: event.isTrusted, submitCount: submissions, ...extra,
+      });
+      logNode.textContent = records.map(item => JSON.stringify(item)).join('\n');
+      logNode.scrollTop = logNode.scrollHeight;
+    }
+    function mount() {
+      const eventEpoch = epoch;
+      const element = document.createElement('input');
+      element.id = 'answer'; element.autocomplete = 'off'; element.spellcheck = false;
+      element.autocapitalize = 'off'; element.disabled = !recording;
+      for (const type of ['compositionstart', 'compositionupdate', 'compositionend', 'beforeinput', 'input', 'keydown', 'keyup', 'focus', 'blur', 'paste', 'drop']) {
+        element.addEventListener(type, event => {
+          if (eventEpoch === epoch && element === field && state !== 'submitted') {
+            if (type === 'compositionstart' || event.isComposing) state = 'composing';
+            if (type === 'compositionend') state = 'settling';
+            if (type === 'keydown' && event.key === 'Enter' && !event.isComposing && state !== 'composing') event.preventDefault();
+          }
+          record(event, eventEpoch, element);
+        });
+      }
+      document.querySelector('#field').replaceChildren(element);
+      field = element;
+    }
+    document.querySelector('#start').addEventListener('click', () => {
+      records = []; submissions = 0; epoch++; state = 'stable'; recording = true;
+      fixture.disabled = true; method.disabled = true;
+      logNode.textContent = ''; mount(); field.focus();
+      status.textContent = '관찰 중 · 지정 문구의 입력·취소·삭제·Tab·클릭 순서를 수행하세요.';
+    });
+    document.querySelector('#next').addEventListener('click', event => {
+      record(event, epoch, field, { action: 'switch-question' });
+      epoch++; state = 'stable'; mount(); field.focus();
+      status.textContent = `새 epoch ${epoch} · 이전 입력 노드 이벤트는 폐기합니다.`;
+    });
+    const submit = document.querySelector('#submit');
+    submit.addEventListener('keydown', event => { if (event.repeat) event.preventDefault(); });
+    submit.addEventListener('click', event => {
+      let result = 'blocked';
+      if (recording && event.detail <= 1 && state === 'settling') {
+        state = 'stable'; result = 'confirm-required';
+        status.textContent = '확정값 확인됨 · 새로 버튼을 눌러 제출하세요.';
+      } else if (recording && event.detail <= 1 && state === 'stable') {
+        const text = field.value.normalize('NFC').replace(/^ +| +$/g, '');
+        if (text) {
+          submissions++; state = 'submitted'; field.readOnly = true; result = 'submitted';
+          const graphemes = typeof Intl.Segmenter === 'function'
+            ? Array.from(new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(text)).length : null;
+          status.textContent = `제출 ${submissions}회 · NFC: ${text} · 군집 수: ${graphemes ?? '미지원'}`;
+        } else { result = 'empty'; status.textContent = '빈 값 · 제출하지 않았습니다.'; }
+      } else { status.textContent = `제출 차단 · 상태 ${state} · 제출 ${submissions}회`; }
+      record(event, epoch, field, { action: 'submit', result });
+    });
+    document.querySelector('#copy').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(JSON.stringify(header(), null, 2)); status.textContent = '로그 JSON을 클립보드에 복사했습니다. 지정 fixture만 포함했는지 확인하세요.'; }
+      catch { status.textContent = '복사 실패 · 아래 로그를 직접 선택해 복사할 수 있습니다.'; }
+    });
+    document.querySelector('#clear').addEventListener('click', () => {
+      recording = false; records = []; epoch++; state = 'stable'; submissions = 0;
+      fixture.disabled = false; method.disabled = false; logNode.textContent = ''; mount();
+      status.textContent = '로그 삭제됨 · 새 관찰을 시작할 수 있습니다.';
+    });
+    mount();
+  </script>
+</body>
+</html>

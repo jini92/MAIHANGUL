@@ -1,6 +1,8 @@
 # D004 · 콘텐츠·데이터·권리 설계
 
-상태: **Draft / 미구현 / 콘텐츠 미검수** · 기준일: 2026-09-30
+상태: **Draft / 스키마·20개 초안 구현 / 전문가 콘텐츠 검수 대기** · 기준일: 2026-09-30
+
+구현과 자동·독립 검사 근거는 [I004](I004-harness-development.md), 원고 작성 근거는 [MH-004](evidence/MH-004-content.md)를 따른다.
 
 요구사항 정본: [A001](A001-PRD.md) · 모듈 경계: [D001](D001-architecture-overview.md) · 화면: [D002](D002-learning-game-ux.md) · 입력 정책: [D003](D003-input-scoring.md) · 검증: [T001](T001-validation-plan.md)
 

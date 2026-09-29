@@ -1,0 +1,9 @@
+# MAIHANGUL compact workspace edit
+
+2026-09-30 · native Stitch MCP `edit_screens`
+
+Refine this existing MAIHANGUL Korean keyboard lesson for direct implementation in a working React app. Keep the existing project design system and the tactile keyboard identity.
+PLATFORM: desktop web, primary viewport 1280 by 720.
+Change the lesson layout into a compact workspace: a thin header with independently labeled UI-language and practice-language selectors; a compact four-step course indicator with current lesson progress; then one learning panel combining the prominent ㄱ target, a small mechanical cue R → ㄱ / left index finger, and three clearly separated Korean, English and Vietnamese explanations below the target. Use only these draft explanation texts: 한국어 "한글 자음 ㄱ의 모양을 익혀요.", English "Explore the shape of the Korean consonant ㄱ.", Tiếng Việt "Làm quen với hình dạng phụ âm tiếng Hàn ㄱ.".
+Below this panel place one labeled text input and a separate Check typing button, followed immediately by a complete five-row QWERTY / Korean two-set keyboard with realistic staggered widths, F/J home bumps, a target outline and a separate pressed-key legend. All five rows, the input, and explanations should fit together in the primary viewport with legible labels. The keyboard is an instructional diagram, not 50 clickable input buttons. Move secondary long input-method help into a disclosure, retain a visible short instruction.
+Maintain no timer, no rankings, no login, no ads. Do not add live correctness coloring while the IME composes. Remove romanization, pronunciation claims, global left-consonant/right-vowel generalizations, fake statistics and unimplemented navigation. Do not put Stitch or Blender implementation details into learner-facing copy. Keep existing Korean/English/Vietnamese display support and quiet pause control.

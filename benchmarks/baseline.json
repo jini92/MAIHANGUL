@@ -2,7 +2,7 @@
   "project": "MAIHANGUL",
   "status": "scaffold",
   "benchmark_date": null,
-  "note": "No product or benchmark has run. Populate metrics only with measured evidence.",
+  "note": "No product performance or learning-effect benchmark has been measured. Automated functional tests are recorded separately in docs/I004-harness-development.md.",
   "metrics": {},
   "critical_settings": {},
   "anti_patterns": [

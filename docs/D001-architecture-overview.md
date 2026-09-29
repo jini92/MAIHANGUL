@@ -1,6 +1,6 @@
 # D001 · 아키텍처 상세 설계
 
-상태: **Draft / 미구현** · 최초 작성: 2026-09-29 · 갱신: 2026-09-30
+상태: **Draft / 로컬 구현·독립 검수 기록 연결** · 최초 작성: 2026-09-29 · 갱신: 2026-09-30
 
 요구사항 [A001](A001-PRD.md) · UX [D002](D002-learning-game-ux.md) · 입력 [D003](D003-input-scoring.md) · 콘텐츠 [D004](D004-content-data-rights.md)
 
@@ -105,4 +105,4 @@ schemaVersion은 저장 구조, contentVersion은 문항 의미/정답, scoringV
 
 계정·클라우드는 StorageAdapter, 교육과정은 ContentRepository, 음성은 AudioAdapter 경계에서 후속 설계한다. 확장을 위해 서버나 빈 서비스를 미리 만들지 않는다. 개인정보·비용·권리·외부 공개 범위 변화 시 새 승인 범위를 확인한다.
 
-[티켓 인덱스](tickets/INDEX.md)의 저장 손상·migration·다중 탭, 중복 방지, 실제 IME·포커스, 음성 실패 검증을 따른다. 패키지 설치·앱 실행·제품 테스트는 이번 작업에서 수행하지 않았다.
+[티켓 인덱스](tickets/INDEX.md)의 저장 손상·migration·다중 탭, 중복 방지, 실제 IME·포커스, 음성 실패 검증을 따른다. 후속 사용자 승인으로 패키지 설치·로컬 앱·자동 검사를 수행하며 실제 실행과 독립 검수 근거는 [I004](I004-harness-development.md)에 기록한다.

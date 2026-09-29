@@ -1,0 +1,15 @@
+Noto Sans CJK KR Medium, Version 2.004
+Copyright notice from the downloaded font's OpenType name table:
+© 2014-2021 Adobe (http://www.adobe.com/).
+
+Licensed under the SIL Open Font License, Version 1.1.
+See OFL-NotoSansCJK.txt in this directory for the unmodified license text.
+
+Official source: https://github.com/notofonts/noto-cjk
+Pinned commit: f8d157532fbfaeda587e826d4cd5b21a49186f7c
+Path: Sans/OTF/Korean/NotoSansCJKkr-Medium.otf
+SHA256: 15c12166634936c31307b91bd049d95b4ba30c248e8c389b5388f75ae8ba90d6
+
+The Blender source uses this font for the keyboard legends. Glyph meshes in
+the scene retain this attribution. The original font binary is not packed
+in the .blend file, included in the application, or requested at runtime.
