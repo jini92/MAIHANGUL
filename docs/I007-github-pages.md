@@ -10,7 +10,7 @@
 
 ## 빌드와 배포
 
-- 설정 주소: <https://jini92.github.io/MAIHANGUL/>
+- 배포 주소: <https://jini92.github.io/MAIHANGUL/>
 - [GitHub Actions](../.github/workflows/pages.yml): master의 앱·테스트·빌드 설정 변경 또는 수동 실행 → `npm ci` → 테스트 → `build:pages` → dist 업로드 → Pages 배포.
 - Node `22.23.1`, package-lock 고정 설치. GitHub 공식 Actions의 조회한 릴리스 SHA를 고정했다.
 - `npm run build:pages`: `vite build --mode demo --base /MAIHANGUL/`. 홈 이미지도 Vite `BASE_URL`을 따라 하위 경로에서 로드한다.
@@ -38,4 +38,10 @@
 - 로컬 자동 검사 **9파일·122개 통과**, `npm run build:pages` 통과. 별도 5174 서버에서 `/MAIHANGUL/`의 홈 이미지 1400×900 로드, 자모 ㄱ 학습 진입, DOM 자판 표시, 콘솔 오류·경고 0건을 확인했다.
 - [독립 공개·배포 검수](evidence/review-pages.md)에서 P1/P2 차단 사항이 없었다. 로컬 설정과 계정 아바타 화면은 공개 대상에서 제외했다.
 - `codex-env-sync -Phase instructions -Check`: 변경 0·경고 0. 지침 원본과 생성 사본이 일치한다.
-- commit·workflow·실제 HTTPS 화면 결과는 배포 후 기록한다.
+- 배포 앱 commit: [`41b967bf3884177d7371ae8837444c38d26ac937`](https://github.com/jini92/MAIHANGUL/commit/41b967bf3884177d7371ae8837444c38d26ac937). master push 완료.
+- [Actions 실행 36638136056](https://github.com/jini92/MAIHANGUL/actions/runs/36638136056): **completed / success**, build·deploy 모두 success. Linux CI에서도 **9파일·122개 검사 통과**와 Pages 빌드 성공을 로그로 확인했다.
+- 실제 공개 HTTPS `index.html`과 `assets/keyboard-studio.webp`는 모두 **HTTP 200**이며 로컬 Pages 빌드와 바이트가 일치했다. WEBP SHA256은 `c7659ea547eafac3b2a4cd007c82cab0d8e06f4ca0ed9b563abd2946160ca0dd`다.
+- 실제 공개 사이트의 IAB에서 베트남어 초기 홈 → 영어 UI → 한국어 UI 전환 중 한국어 연습 설정이 유지됐다. 자모 ㄱ와 반투명 자판·세 언어 해석이 표시됐고 이미지 자연 크기는 1400×900이었다.
+- 공개 사이트에서 ㄱ 입력 후 입력란 Enter는 제출하지 않았으며 확인 버튼으로 제출한 뒤 정확도 100%가 표시됐다. 콘솔 경고·오류는 0건이었다. 이 검사는 브라우저 값 입력이며 실제 OS IME 검증은 아니다.
+- 화면 근거: [공개 홈](evidence/screenshots/pages-home.png), [공개 연습 화면](evidence/screenshots/pages-practice.png). 검수용 로컬 서버는 종료하고 공개 사이트 탭은 홈 화면으로 남겼다.
+- 배포 이후 기록·스크린샷을 추가하는 문서 commit은 앱을 바꾸지 않는다. workflow의 경로 조건에 따라 문서만 바꾼 push는 재배포하지 않으며 위 앱 commit이 배포된 버전이다.
