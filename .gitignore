@@ -1,0 +1,21 @@
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+node_modules/
+dist/
+coverage/
+.DS_Store
+Thumbs.db
+
+# Generated local agent configuration may contain private MCP settings
+.codex/config.toml
+.codex/skills/
+.claude/settings.local.json
+.mcp.json
+
+# Local evidence containing prompt or machine context
+.local/
+*.log

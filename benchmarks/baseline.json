@@ -1,0 +1,13 @@
+{
+  "project": "MAIHANGUL",
+  "status": "scaffold",
+  "benchmark_date": null,
+  "note": "No product or benchmark has run. Populate metrics only with measured evidence.",
+  "metrics": {},
+  "critical_settings": {},
+  "anti_patterns": [
+    "Treating an unfinished IME composition as a typing error",
+    "Removing Vietnamese tone marks before correctness comparison",
+    "Claiming language learning gains from typing speed alone"
+  ]
+}
