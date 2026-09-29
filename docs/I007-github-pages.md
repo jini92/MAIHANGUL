@@ -48,4 +48,13 @@
 
 ## 베트남어 학습·시뮬레이션 후속 배포
 
-2026-09-30 사용자가 베트남어 화면 확인 후 push·배포를 명시 승인했다. 대상은 동일한 공개 저장소의 `master`와 위 Pages 주소다. [I008](I008-vietnamese-simulation.md)의 시뮬레이션, 베트남어 홈·과정 표시, 첫 네 VI 풀이 수정과 검증 기록을 반영한다. 로컬 MCP 설정·`.local/`은 계속 제외한다. 실제 commit·Actions·공개 화면 결과는 실행 후 아래에 기록한다.
+2026-09-30 사용자가 베트남어 화면 확인 후 push·배포를 명시 승인했다. 대상은 동일한 공개 저장소의 `master`와 위 Pages 주소다. [I008](I008-vietnamese-simulation.md)의 시뮬레이션, 베트남어 홈·과정 표시, 첫 네 VI 풀이 수정과 검증 기록을 반영했다. 로컬 MCP 설정·`.local/`은 계속 제외했다.
+
+- 앱 commit [`e7a0ce9d1121f66240dc0aba2635a6b83e68233b`](https://github.com/jini92/MAIHANGUL/commit/e7a0ce9d1121f66240dc0aba2635a6b83e68233b)을 `master`에 push했고 원격 SHA 일치를 확인했다.
+- [Actions 실행 36643599340](https://github.com/jini92/MAIHANGUL/actions/runs/36643599340): **completed / success**, build·deploy 모두 success. 독립 검수 에이전트가 해당 commit의 실제 Linux CI 로그에서 **12파일·250개 테스트 통과**, TypeScript·Pages 빌드, 배포 성공을 확인했다. 완료 시각은 2026-09-30 08:09:32 KST다.
+- 공개 HTTPS의 `index.html`, `index-Dsy-Lq97.js`, `index-DopV5dw0.css`는 HTTP 200이며 로컬 Pages 빌드와 바이트가 일치했다. JS SHA256: `ef005ec5ceaa8917a5eeefb8c5b3ecd514fe6fee05957de1e8b42fe9dcb3df8e`.
+- 공개 사이트 IAB에서 한국어 UI를 유지하고 연습 언어만 VI로 바꾸면 베트남어 홈·학습 시작·단계별 실제 문구 예시가 표시됐다. 일반 학습 시작은 `phụ âm` 및 수정된 자음 풀이로 진입했고, 시연은 닫혀 있었다.
+- 홈의 Telex/VNI 미리보기는 `Xin chào.`와 열린 시연으로 진입했다. VNI 9/10단계에서 `Xin chào`·현재 키 `2`·다음 키 `.`가 표시됐고 실제 입력 확인은 비활성화됐다. 콘솔 경고·오류는 0건이었다.
+- 공개 화면: [베트남어 홈](evidence/screenshots/pages-vietnamese-home.png), [VNI 입력 시연](evidence/screenshots/pages-vietnamese-simulator.png). 검수용 5174 서버·탭은 종료했고 사용자 5173 개발 서버는 유지했다. 공개 시연 탭을 결과로 남겼다.
+- 변경 Markdown의 로컬 링크 대상 134개가 존재했고 `git diff --check`가 통과했다. 이 결과·화면을 추가하는 문서 commit은 앱 배포를 다시 실행하지 않는다.
+- 실제 Windows Telex/VNI 입력·교육/번역 전문가 검수·학습 효과 검증은 수행하지 않았다. 공개 사이트는 검수 전 자료임을 표시하는 체험 버전이다.
