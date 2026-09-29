@@ -1,6 +1,18 @@
-import type { Locale } from '../content';
+import type { Locale, Stage } from '../content';
 
 const ko = {
+  viTitle: '베트남어를 한 문장씩.', viSubtitle: '글자 이름부터 단어, 생활 문장과 카페 주문까지. 베트남어 입문 문구를 뜻과 함께 입력해 보세요.',
+  viStart: '베트남어 학습 시작', viPreview: 'Telex/VNI 입력 미리보기', viHero: 'Telex aa 또는 VNI a6으로 â를 만들어요. 베트남어의 글자 모양과 성조를 함께 연습해요.',
+  viJamo: '글자 이름·입력', viWord: '기초 단어', viDaily: '생활 문장', viCafe: '카페 주문',
+  viJamoDescription: '자음·모음 같은 글자 이름을 입력해요.', viWordDescription: '베트남어 단어와 뜻을 연결해요.',
+  viDailyDescription: '인사와 일상 표현을 베트남어로 입력해요.', viCafeDescription: '베트남어 주문을 입력하고 뜻을 골라요.',
+  demoTitle: '입력 방법 미리보기', demoOpen: '입력 방법 미리보기 열기', demoClose: '접고 직접 입력', demoMethod: '시연 방식',
+  demoHelp: '입력기 없이 시연할 수 있습니다. 직접 연습할 때는 PC의 해당 입력기를 선택하세요. 입력기 설정에 따라 중간 표시가 다를 수 있습니다.',
+  demoReadonly: '시연을 보는 동안 입력 내용은 보존됩니다. 접고 직접 입력을 누르면 연습을 이어갑니다.',
+  demoPlay: '재생', demoPause: '시연 일시정지', demoReset: '처음으로', demoPrevious: '이전 키', demoNext: '다음 키',
+  demoOutput: '시연 문자열', demoCurrent: '현재 시연 키', demoNextKey: '다음 시연 키', demoSequence: '시연 키 순서', demoKey: '시연 키',
+  demoUnsupported: '이 문구의 시연은 아직 준비되지 않았습니다. 직접 입력 연습은 계속할 수 있습니다.',
+  demoAssisted: '시연을 본 이 문제는 도움을 받은 연습으로 기록하며 속도 비교에서 제외합니다.',
   keyboardTitle: '눈으로 익히는 자판', keyboardTwoSet: '두벌식 · QWERTY',
   keyboardScroll: '자판 그림. 좁은 화면에서는 좌우 방향키, Home, End로 이동할 수 있습니다.',
   keyboardSequence: '누르는 순서', keyboardTarget: '목표 위치', keyboardPressed: '누른 키',
@@ -62,6 +74,18 @@ const ko = {
 
 type Messages = { [Key in keyof typeof ko]: string };
 const en: Messages = {
+  viTitle: 'Vietnamese, one phrase at a time.', viSubtitle: 'From words about letters to everyday phrases and café orders. Type introductory Vietnamese and explore its meaning.',
+  viStart: 'Start learning Vietnamese', viPreview: 'Preview Telex/VNI typing', viHero: 'Use Telex aa or VNI a6 to make â. Practice Vietnamese letter shapes and tone marks together.',
+  viJamo: 'Letter terms & typing', viWord: 'Basic words', viDaily: 'Everyday phrases', viCafe: 'Café orders',
+  viJamoDescription: 'Type words such as consonant and vowel.', viWordDescription: 'Connect Vietnamese words with their meaning.',
+  viDailyDescription: 'Type Vietnamese greetings and everyday phrases.', viCafeDescription: 'Type a Vietnamese order, then choose its meaning.',
+  demoTitle: 'Preview how to type', demoOpen: 'Open typing preview', demoClose: 'Close and type', demoMethod: 'Demo method',
+  demoHelp: 'Watch without an input method installed. Select the matching PC input method for your own practice. Intermediate text may differ with input method settings.',
+  demoReadonly: 'Your input is preserved while the demo is open. Choose Close and type to continue your practice.',
+  demoPlay: 'Play', demoPause: 'Pause demo', demoReset: 'Start over', demoPrevious: 'Previous key', demoNext: 'Next key',
+  demoOutput: 'Demo text', demoCurrent: 'Current demo key', demoNextKey: 'Next demo key', demoSequence: 'Demo key sequence', demoKey: 'Demo key',
+  demoUnsupported: 'A demo for this phrase is not ready yet. You can continue typing it yourself.',
+  demoAssisted: 'Viewing the demo marks this question as assisted practice and excludes its speed from comparisons.',
   keyboardTitle: 'Find your keys', keyboardTwoSet: 'Korean two-set · QWERTY',
   keyboardScroll: 'Keyboard diagram. Use left and right arrow keys, Home or End to scroll on narrow screens.',
   keyboardSequence: 'Press in order', keyboardTarget: 'Target position', keyboardPressed: 'Pressed key',
@@ -122,6 +146,18 @@ const en: Messages = {
 };
 
 const vi: Messages = {
+  viTitle: 'Học tiếng Việt, từng câu một.', viSubtitle: 'Từ tên gọi về chữ đến từ vựng, câu giao tiếp và gọi món. Luyện gõ các mẫu tiếng Việt nhập môn và tìm hiểu ý nghĩa.',
+  viStart: 'Bắt đầu học tiếng Việt', viPreview: 'Xem trước cách gõ Telex/VNI', viHero: 'Gõ aa với Telex hoặc a6 với VNI để tạo â. Luyện hình dạng chữ và dấu thanh tiếng Việt.',
+  viJamo: 'Tên gọi về chữ & gõ', viWord: 'Từ cơ bản', viDaily: 'Câu giao tiếp', viCafe: 'Gọi món',
+  viJamoDescription: 'Gõ các tên gọi như phụ âm và nguyên âm.', viWordDescription: 'Kết nối từ tiếng Việt với ý nghĩa.',
+  viDailyDescription: 'Gõ lời chào và câu giao tiếp tiếng Việt.', viCafeDescription: 'Gõ câu gọi món tiếng Việt rồi chọn ý nghĩa.',
+  demoTitle: 'Xem trước cách gõ', demoOpen: 'Mở phần xem trước cách gõ', demoClose: 'Đóng và tự gõ', demoMethod: 'Kiểu gõ minh họa',
+  demoHelp: 'Xem minh họa mà không cần cài bộ gõ. Khi tự luyện, hãy chọn bộ gõ tương ứng trên máy tính. Chữ hiển thị ở các bước có thể khác tùy cài đặt bộ gõ.',
+  demoReadonly: 'Nội dung bạn nhập được giữ nguyên khi xem minh họa. Chọn Đóng và tự gõ để tiếp tục luyện tập.',
+  demoPlay: 'Phát', demoPause: 'Tạm dừng minh họa', demoReset: 'Về đầu', demoPrevious: 'Phím trước', demoNext: 'Phím tiếp theo',
+  demoOutput: 'Chữ minh họa', demoCurrent: 'Phím minh họa hiện tại', demoNextKey: 'Phím minh họa tiếp theo', demoSequence: 'Thứ tự phím minh họa', demoKey: 'Phím minh họa',
+  demoUnsupported: 'Chưa có minh họa cho câu này. Bạn vẫn có thể tự luyện gõ.',
+  demoAssisted: 'Câu đã xem minh họa được ghi là lượt luyện có hỗ trợ và không dùng để so sánh tốc độ.',
   keyboardTitle: 'Làm quen với bàn phím', keyboardTwoSet: 'Tiếng Hàn hai bộ · QWERTY',
   keyboardScroll: 'Hình bàn phím. Dùng phím mũi tên trái, phải, Home hoặc End để cuộn trên màn hình hẹp.',
   keyboardSequence: 'Nhấn theo thứ tự', keyboardTarget: 'Phím cần tìm', keyboardPressed: 'Phím đang nhấn',
@@ -184,3 +220,16 @@ const vi: Messages = {
 export const messages: Record<Locale, Messages> = { ko, en, vi };
 export const localeNames: Record<Locale, string> = { ko: '한국어', en: 'English', vi: 'Tiếng Việt' };
 export type MessageKey = keyof Messages;
+
+/** Course copy follows the practice language; its translation follows the UI locale. */
+export function learningCopy(locale: Locale, language: Locale) {
+  const text = messages[locale];
+  const vietnamese = language === 'vi';
+  const names: Record<Stage, string> = vietnamese
+    ? { jamo: text.viJamo, word: text.viWord, daily: text.viDaily, cafe: text.viCafe }
+    : { jamo: text.jamo, word: text.word, daily: text.daily, cafe: text.cafe };
+  const descriptions: Record<Stage, string> = vietnamese
+    ? { jamo: text.viJamoDescription, word: text.viWordDescription, daily: text.viDailyDescription, cafe: text.viCafeDescription }
+    : { jamo: text.jamoDescription, word: text.wordDescription, daily: text.dailyDescription, cafe: text.cafeDescription };
+  return { title: vietnamese ? text.viTitle : text.title, subtitle: vietnamese ? text.viSubtitle : text.subtitle, names, descriptions };
+}

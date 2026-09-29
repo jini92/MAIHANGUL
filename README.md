@@ -28,6 +28,7 @@
 - [자판 FE·Stitch·Blender 연동 기록](docs/I005-keyboard-design.md)
 - [Stitch 시안·Blender 자산의 실제 FE 적용](docs/I006-stitch-blender-implementation.md)
 - [공개 저장소·Pages 배포와 검증](docs/I007-github-pages.md)
+- [베트남어 Telex/VNI 입력 시뮬레이션](docs/I008-vietnamese-simulation.md)
 - [디자인 토큰과 자판 동작](design.md)
 - [초기화 확인 기록](docs/I001-initialization.md)
 - [검증 계획](docs/T001-validation-plan.md)
@@ -48,6 +49,10 @@ npm run build
 개발 서버는 20개 개념·60개 언어 변형을 **검수 전 초안 미리보기**로 제공한다. 기본 `npm run build`는 승인된 콘텐츠만 읽으며 현재는 승인 문항이 없어 빈 목록을 표시한다. `npm run build:pages`는 명시적인 `demo` 모드로 초안을 표시하고 `/MAIHANGUL/` 하위 경로에 맞춰 빌드한다. IME 관찰 도구는 사이트 경로 아래 `ime-probe.html`에 있다.
 
 베트남어 UI·학습 문구·성조를 보존하는 입력/채점은 구현되어 있다. 실제 Telex/VNI 키 입력의 호환성은 별도 확인 대기이며, 이는 베트남어 기능 미지원이라는 뜻이 아니다. [검증 범위](docs/evidence/MH-002-vietnamese.md)를 확인한다.
+
+연습 언어를 베트남어로 선택하면 홈에 **베트남어 학습 시작**, 단계별 베트남어 예시, **Telex/VNI 입력 미리보기**가 표시된다. 일반 시작은 직접 입력으로, 미리보기는 시연이 열린 문항으로 들어간다. 현재 20개 문항으로 글자 이름·단어·생활 문장·카페 주문을 연습한다.
+
+문제 화면의 **입력 방법 미리보기**에서도 Telex/VNI의 키 순서와 글자 변화를 재생하거나 한 키씩 볼 수 있다. 시연에는 입력기 설치가 필요 없다. 직접 입력할 때는 PC의 해당 입력기를 선택한다. 시연을 본 문제는 도움 사용으로 기록하며 속도 비교에서 제외한다. 이 기능의 현재 반영·검증 상태는 [I008](docs/I008-vietnamese-simulation.md)을 따른다.
 
 ## 참고와 관계
 

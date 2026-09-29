@@ -5,7 +5,7 @@
   "concepts": [
     {
       "id": "MH-C001",
-      "revision": 2,
+      "revision": 3,
       "stage": "jamo",
       "order": 1,
       "learningGoal": "한글 자음 ㄱ의 모양을 익혀요.",
@@ -57,14 +57,14 @@
           "practiceLanguage": "vi",
           "targetText": "phụ âm",
           "explanations": {
-            "ko": "한글 자음 ㄱ의 모양을 익혀요.",
-            "en": "Explore the shape of the Korean consonant ㄱ.",
-            "vi": "Làm quen với hình dạng phụ âm tiếng Hàn ㄱ."
+            "ko": "“phụ âm”은 “자음”이라는 뜻이에요.",
+            "en": "“phụ âm” means “consonant”.",
+            "vi": "“phụ âm” có nghĩa là “consonant” (자음)."
           },
           "usageNote": {
-            "ko": "영어·베트남어 목표는 안내 단어 연습이며 한글 발음 표기가 아니에요.",
-            "en": "The English and Vietnamese targets practice an instruction term, not a Korean pronunciation spelling.",
-            "vi": "Mục tiêu tiếng Anh và tiếng Việt là luyện từ hướng dẫn, không phải phiên âm tiếng Hàn."
+            "ko": "베트남어 목표 문구를 성조와 글자 모양까지 그대로 입력해요.",
+            "en": "Type the Vietnamese target exactly, including all accents.",
+            "vi": "Gõ đúng cụm từ tiếng Việt được hiển thị, bao gồm đầy đủ dấu."
           },
           "keyboardHint": {
             "ko": "베트남어 Telex 또는 VNI 입력기로 표시된 단어나 구를 성조까지 입력하세요. 입력기 설정은 직접 확인해 주세요.",
@@ -90,15 +90,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C001@2 education; all variants, explanations, options and feedback",
+          "scope": "MH-C001@3 education; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “phụ âm = 자음/consonant”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "ko": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C001@2 ko; all variants, explanations, options and feedback",
+          "scope": "MH-C001@3 ko; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -106,7 +106,7 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C001@2 en; all variants, explanations, options and feedback",
+          "scope": "MH-C001@3 en; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -114,15 +114,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C001@2 vi; all variants, explanations, options and feedback",
+          "scope": "MH-C001@3 vi; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “phụ âm = 자음/consonant”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "rights": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C001@2 rights; all variants, explanations, options and feedback",
+          "scope": "MH-C001@3 rights; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         }
@@ -131,7 +131,7 @@
     },
     {
       "id": "MH-C002",
-      "revision": 2,
+      "revision": 3,
       "stage": "jamo",
       "order": 2,
       "learningGoal": "한글 자음 ㄴ의 꺾인 모양을 익혀요.",
@@ -183,14 +183,14 @@
           "practiceLanguage": "vi",
           "targetText": "hình chữ",
           "explanations": {
-            "ko": "한글 자음 ㄴ의 꺾인 모양을 익혀요.",
-            "en": "Explore the angled shape of the Korean consonant ㄴ.",
-            "vi": "Làm quen với hình dạng gấp khúc của phụ âm tiếng Hàn ㄴ."
+            "ko": "“hình chữ”의 뜻은 “글자 모양”이에요.",
+            "en": "“hình chữ” means “letter shape”.",
+            "vi": "“hình chữ” có nghĩa là “letter shape” (글자 모양)."
           },
           "usageNote": {
-            "ko": "영어·베트남어 목표는 안내 단어 연습이며 한글 발음 표기가 아니에요.",
-            "en": "The English and Vietnamese targets practice an instruction term, not a Korean pronunciation spelling.",
-            "vi": "Mục tiêu tiếng Anh và tiếng Việt là luyện từ hướng dẫn, không phải phiên âm tiếng Hàn."
+            "ko": "베트남어 목표 문구를 성조와 글자 모양까지 그대로 입력해요.",
+            "en": "Type the Vietnamese target exactly, including all accents.",
+            "vi": "Gõ đúng cụm từ tiếng Việt được hiển thị, bao gồm đầy đủ dấu."
           },
           "keyboardHint": {
             "ko": "베트남어 Telex 또는 VNI 입력기로 표시된 단어나 구를 성조까지 입력하세요. 입력기 설정은 직접 확인해 주세요.",
@@ -216,15 +216,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C002@2 education; all variants, explanations, options and feedback",
+          "scope": "MH-C002@3 education; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “hình chữ = 글자 모양/letter shape”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "ko": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C002@2 ko; all variants, explanations, options and feedback",
+          "scope": "MH-C002@3 ko; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -232,7 +232,7 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C002@2 en; all variants, explanations, options and feedback",
+          "scope": "MH-C002@3 en; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -240,15 +240,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C002@2 vi; all variants, explanations, options and feedback",
+          "scope": "MH-C002@3 vi; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “hình chữ = 글자 모양/letter shape”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "rights": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C002@2 rights; all variants, explanations, options and feedback",
+          "scope": "MH-C002@3 rights; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         }
@@ -257,7 +257,7 @@
     },
     {
       "id": "MH-C003",
-      "revision": 2,
+      "revision": 3,
       "stage": "jamo",
       "order": 3,
       "learningGoal": "한글 모음 ㅏ의 모양과 위치를 익혀요.",
@@ -309,14 +309,14 @@
           "practiceLanguage": "vi",
           "targetText": "nguyên âm",
           "explanations": {
-            "ko": "한글 모음 ㅏ의 모양과 위치를 익혀요.",
-            "en": "Explore the shape and key position of the Korean vowel ㅏ.",
-            "vi": "Làm quen với hình dạng và vị trí phím của nguyên âm tiếng Hàn ㅏ."
+            "ko": "“nguyên âm”은 “모음”이라는 뜻이에요.",
+            "en": "“nguyên âm” means “vowel”.",
+            "vi": "“nguyên âm” có nghĩa là “vowel” (모음)."
           },
           "usageNote": {
-            "ko": "영어·베트남어 목표는 안내 단어 연습이며 한글 발음 표기가 아니에요.",
-            "en": "The English and Vietnamese targets practice an instruction term, not a Korean pronunciation spelling.",
-            "vi": "Mục tiêu tiếng Anh và tiếng Việt là luyện từ hướng dẫn, không phải phiên âm tiếng Hàn."
+            "ko": "베트남어 목표 문구를 성조와 글자 모양까지 그대로 입력해요.",
+            "en": "Type the Vietnamese target exactly, including all accents.",
+            "vi": "Gõ đúng cụm từ tiếng Việt được hiển thị, bao gồm đầy đủ dấu."
           },
           "keyboardHint": {
             "ko": "베트남어 Telex 또는 VNI 입력기로 표시된 단어나 구를 성조까지 입력하세요. 입력기 설정은 직접 확인해 주세요.",
@@ -342,15 +342,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C003@2 education; all variants, explanations, options and feedback",
+          "scope": "MH-C003@3 education; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “nguyên âm = 모음/vowel”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "ko": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C003@2 ko; all variants, explanations, options and feedback",
+          "scope": "MH-C003@3 ko; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -358,7 +358,7 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C003@2 en; all variants, explanations, options and feedback",
+          "scope": "MH-C003@3 en; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -366,15 +366,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C003@2 vi; all variants, explanations, options and feedback",
+          "scope": "MH-C003@3 vi; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “nguyên âm = 모음/vowel”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "rights": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C003@2 rights; all variants, explanations, options and feedback",
+          "scope": "MH-C003@3 rights; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         }
@@ -383,7 +383,7 @@
     },
     {
       "id": "MH-C004",
-      "revision": 2,
+      "revision": 3,
       "stage": "jamo",
       "order": 4,
       "learningGoal": "자음 ㄱ과 모음 ㅏ를 합쳐 한 음절을 만들어요.",
@@ -435,14 +435,14 @@
           "practiceLanguage": "vi",
           "targetText": "âm tiết",
           "explanations": {
-            "ko": "자음 ㄱ과 모음 ㅏ를 합쳐 한 음절을 만들어요.",
-            "en": "Combine ㄱ and ㅏ to form one Korean syllable.",
-            "vi": "Ghép ㄱ và ㅏ để tạo thành một âm tiết tiếng Hàn."
+            "ko": "“âm tiết”은 “음절”이라는 뜻이에요.",
+            "en": "“âm tiết” means “syllable”.",
+            "vi": "“âm tiết” có nghĩa là “syllable” (음절)."
           },
           "usageNote": {
-            "ko": "영어·베트남어 목표는 안내 단어 연습이며 한글 발음 표기가 아니에요.",
-            "en": "The English and Vietnamese targets practice an instruction term, not a Korean pronunciation spelling.",
-            "vi": "Mục tiêu tiếng Anh và tiếng Việt là luyện từ hướng dẫn, không phải phiên âm tiếng Hàn."
+            "ko": "베트남어 목표 문구를 성조와 글자 모양까지 그대로 입력해요.",
+            "en": "Type the Vietnamese target exactly, including all accents.",
+            "vi": "Gõ đúng cụm từ tiếng Việt được hiển thị, bao gồm đầy đủ dấu."
           },
           "keyboardHint": {
             "ko": "베트남어 Telex 또는 VNI 입력기로 표시된 단어나 구를 성조까지 입력하세요. 입력기 설정은 직접 확인해 주세요.",
@@ -468,15 +468,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C004@2 education; all variants, explanations, options and feedback",
+          "scope": "MH-C004@3 education; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “âm tiết = 음절/syllable”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "ko": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C004@2 ko; all variants, explanations, options and feedback",
+          "scope": "MH-C004@3 ko; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -484,7 +484,7 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C004@2 en; all variants, explanations, options and feedback",
+          "scope": "MH-C004@3 en; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         },
@@ -492,15 +492,15 @@
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C004@2 vi; all variants, explanations, options and feedback",
+          "scope": "MH-C004@3 vi; all variants, explanations, options and feedback",
           "evidence": null,
-          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
+          "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음. 개정 3: 베트남어 변형의 풀이를 “âm tiết = 음절/syllable”에 맞추고 사용 안내를 베트남어 입력 연습으로 수정함. 검수 전 초안 유지."
         },
         "rights": {
           "status": "draft",
           "reviewer": null,
           "reviewedAt": null,
-          "scope": "MH-C004@2 rights; all variants, explanations, options and feedback",
+          "scope": "MH-C004@3 rights; all variants, explanations, options and feedback",
           "evidence": null,
           "notes": "개정 2 초안. 독립 코드 검수 RD-05/06에 따라 피드백 문장과 언어별 입력 안내를 수정함. 교육·언어·권리 전문가 검수와 승인 근거 없음."
         }

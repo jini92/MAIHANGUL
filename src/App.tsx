@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { loadContent, type Concept, type ContentMode, type Locale, type Stage } from './content';
-import { messages, localeNames } from './i18n';
+import { messages, localeNames, learningCopy } from './i18n';
 import { PracticeSession } from './components/PracticeSession';
 import { ConfirmDialog, type ConfirmationRequest } from './components/ConfirmDialog';
 import type { InputState } from './input/usePracticeInput';
@@ -22,6 +22,7 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
   const [screen, setScreen] = useState<Screen>('home');
   const [session, setSession] = useState<Concept[]>([]);
   const [sessionId, setSessionId] = useState(0);
+  const [initialDemoOpen, setInitialDemoOpen] = useState(false);
   const [review, setReview] = useState(false);
   const [showHints, setShowHints] = useState(true);
   const [inputMethod, setInputMethod] = useState<InputMethod>('unknown');
@@ -34,13 +35,15 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
   const exposure = useRef(new Set<string>());
   const heading = useRef<HTMLHeadingElement>(null);
   const text = messages[locale];
+  const course = learningCopy(locale, language);
   const concepts = repository.concepts;
   const firstStage = stages.find(stage => concepts.some(concept => concept.stage === stage));
-  const startLabel = firstStage === 'word' ? text.startWord : firstStage === 'daily' ? text.startDaily : firstStage === 'cafe' ? text.startCafe : text.start;
+  const startLabel = language === 'vi' ? text.viStart : firstStage === 'word' ? text.startWord : firstStage === 'daily' ? text.startDaily : firstStage === 'cafe' ? text.startCafe : text.start;
+  const demoQuestion = concepts.find(concept => concept.stage === 'daily') ?? concepts[0];
   const activeReview = stored.state.reviewQueue.filter(item => item.variantLanguage === language && concepts.some(concept => concept.id === item.contentId && concept.revision === item.contentVersion));
   const completedIds = new Set(stored.state.progress.filter(item => item.variantLanguage === language && concepts.some(concept => concept.id === item.contentId && concept.revision === item.contentVersion)).map(item => item.contentId));
 
-  useEffect(() => { document.documentElement.lang = locale; document.title = `MAIHANGUL · ${text.jamo}`; }, [locale, text.jamo]);
+  useEffect(() => { document.documentElement.lang = locale; document.title = `MAIHANGUL · ${course.title}`; }, [locale, course.title]);
   useEffect(() => { heading.current?.focus(); }, [screen]);
   useEffect(() => {
     const changed = (event: StorageEvent) => {
@@ -69,24 +72,26 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
     if (!allowChange()) return;
     const leave = () => {
       if (!allowChange()) return;
-      setScreen('home'); setReview(false); setSession([]); inputState.current = 'stable';
+      setScreen('home'); setReview(false); setSession([]); setInitialDemoOpen(false); inputState.current = 'stable';
       exposure.current = new Set();
     };
     if (screen === 'practice' && sessionIncomplete.current) {
       requestConfirmation({ message: text.confirmLeave, confirmLabel: text.leavePractice, cancelLabel: text.continue, onConfirm: leave });
     } else leave();
   };
-  const start = (stage: Stage, fromId?: string) => {
+  const start = (stage: Stage, fromId?: string, previewInput = false) => {
     const list = concepts.filter(item => item.stage === stage);
     if (!list.length) return;
     const from = fromId ? list.findIndex(item => item.id === fromId) : 0;
     setSession(list.slice(Math.max(0, from))); setSessionId(value => value + 1);
+    setInitialDemoOpen(language === 'vi' && previewInput);
     setScreen('practice'); setReview(false); setShowHints(true); inputState.current = 'stable';
   };
   const openReview = () => {
     setReview(true); setShowHints(true); exposure.current = new Set(); setScreen('reviewPrepare');
   };
   const beginReview = () => {
+    setInitialDemoOpen(false);
     setSession(concepts.filter(concept => activeReview.some(item => item.contentId === concept.id && item.contentVersion === concept.revision)));
     setSessionId(value => value + 1); setScreen('practice'); inputState.current = 'stable';
   };
@@ -122,7 +127,7 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
           const change = () => {
             if (!allowChange()) return;
             setLanguage(next); persistSettings(locale, next);
-            setInputMethod('unknown'); setSessionId(value => value + 1); inputState.current = 'stable';
+            setInputMethod('unknown'); setInitialDemoOpen(false); setSessionId(value => value + 1); inputState.current = 'stable';
             if (screen === 'practice') {
               if (review) { setScreen('reviewPrepare'); setShowHints(true); }
               else setSession(list => list.slice(Math.max(0, list.findIndex(item => item.id === currentQuestion.current))));
@@ -138,14 +143,15 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
     <main id="main">
       {screen === 'home' && <>
         <section className="welcome">
-          <div className="welcome-copy"><h1 tabIndex={-1} ref={heading}>{text.title}</h1><p>{text.subtitle}</p>
+          <div className="welcome-copy"><h1 tabIndex={-1} ref={heading}>{course.title}</h1><p>{course.subtitle}</p>
             <div className="actions"><button className="primary" disabled={!firstStage} onClick={() => { if (firstStage) start(firstStage); }}>{startLabel}</button>
+              {language === 'vi' && demoQuestion && <button onClick={() => start(demoQuestion.stage, demoQuestion.id, true)}>{text.viPreview}</button>}
               {stored.state.resume && concepts.some(item => item.id === stored.state.resume?.nextContentId && item.revision === stored.state.resume.nextContentVersion) && <button onClick={() => start(stored.state.resume!.stage, stored.state.resume!.nextContentId)}>{text.resume}</button>}
             </div><p className="pace-welcome"><span aria-hidden="true">◷</span> {text.freePace}</p>
           </div>
           <figure className="keyboard-hero">
             <img src={`${import.meta.env.BASE_URL}assets/keyboard-studio.webp`} alt="" width="1400" height="900" decoding="async" />
-            <figcaption><span className="hero-key" aria-hidden="true">R <span>ㄱ</span></span><p>{text.keyboardPreview}</p></figcaption>
+            <figcaption><span className="hero-key" aria-hidden="true">{language === 'vi' ? <>aa / a6 <span>→ â</span></> : <>R <span>ㄱ</span></>}</span><p>{language === 'vi' ? text.viHero : text.keyboardPreview}</p></figcaption>
           </figure>
         </section>
         {!concepts.length ? <section className="empty-state"><h2>{text.noContent}</h2><p>{text.noContentHelp}</p></section> : <>
@@ -153,8 +159,10 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
             <nav className="learning-path" aria-label={text.progressLabel}>{stages.map((stage, position) => {
               const stageConcepts = concepts.filter(item => item.stage === stage);
               return <button key={stage} className={`stage-option stage-${stage}`} disabled={!stageConcepts.length} onClick={() => start(stage)}>
-                <span className="stage-number">{position + 1}</span><span className="stage-copy"><strong>{text[stage]}</strong><span>{text[`${stage}Description`]}</span><small>{stageConcepts.length ? <>{stageConcepts.filter(item => completedIds.has(item.id)).length} / {stageConcepts.length} {text.completed}</> : text.stageUnavailable}</small></span>
-                <span className="stage-glyph" aria-hidden="true">{stage === 'jamo' ? 'ㄱ' : stage === 'word' ? '가' : stage === 'daily' ? '말' : '잔'}</span>
+                <span className="stage-number">{position + 1}</span><span className="stage-copy"><strong>{course.names[stage]}</strong><span>{course.descriptions[stage]}</span>
+                  {language === 'vi' && stageConcepts.length > 0 && <span className="stage-examples" lang="vi">{stageConcepts.slice(0, stage === 'jamo' || stage === 'word' ? 3 : 2).map(item => <span key={item.id}>{item.variants.vi.targetText}</span>)}</span>}
+                  <small>{stageConcepts.length ? <>{stageConcepts.filter(item => completedIds.has(item.id)).length} / {stageConcepts.length} {text.completed}</> : text.stageUnavailable}</small></span>
+                <span className="stage-glyph" aria-hidden="true">{language === 'vi' ? (stage === 'jamo' ? 'â' : stage === 'word' ? 'từ' : stage === 'daily' ? 'chào' : 'cà') : (stage === 'jamo' ? 'ㄱ' : stage === 'word' ? '가' : stage === 'daily' ? '말' : '잔')}</span>
               </button>;
             })}</nav>
           </section>
@@ -169,7 +177,7 @@ export default function App({ contentMode = import.meta.env.DEV || import.meta.e
         <button className="quiet" onClick={goHome}>{text.reviewFinish}</button>
       </section>}
       {screen === 'practice' && <>
-        <PracticeSession key={`${sessionId}:${language}`} concepts={session} locale={locale} language={language} inputMethod={inputMethod} review={review} showHints={showHints} exposure={exposure.current}
+        <PracticeSession key={`${sessionId}:${language}`} concepts={session} locale={locale} language={language} inputMethod={inputMethod} review={review} showHints={showHints} exposure={exposure.current} initialDemoOpen={initialDemoOpen}
           stageProgress={stages.map(stage => ({ stage, total: concepts.filter(item => item.stage === stage).length,
             completed: concepts.filter(item => item.stage === stage && completedIds.has(item.id)).length }))}
           onHintsChange={setShowHints} onStateChange={onInputState} onQuestionChange={onQuestionChange} onIncompleteChange={onIncompleteChange} onPersist={persistAttempts} onHome={goHome} onRequestConfirmation={requestConfirmation} onReviewSettings={() => { setShowHints(true); setScreen('reviewPrepare'); }} />

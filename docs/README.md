@@ -19,6 +19,7 @@
 | [I005 자판 디자인](I005-keyboard-design.md) | 최초 자판 중심 FE·브라우저 검사·도구 연동 | 이전 실행 기록 |
 | [I006 Stitch·Blender 적용](I006-stitch-blender-implementation.md) | 실제 시안·3D 렌더의 앱 적용·검수 | 최신 FE 실행 기록 |
 | [I007 GitHub Pages](I007-github-pages.md) | 저장소 공개·master 반영·체험 사이트 배포 | 실제 배포 결과 정본 |
+| [I008 베트남어 시뮬레이션](I008-vietnamese-simulation.md) | Telex/VNI 입력 순서·자판 시연·채점 분리 | 로컬 검증 완료·신규 배포 미실행 |
 | [디자인 가이드](../design.md) | 색상·자판 표시·입력 보호 계약 | 자체 UI 정본 |
 | [개발 티켓](tickets/INDEX.md) | MH-001~MH-020의 수용 가능한 작업 단위 | 현재 상태는 인덱스 참조 |
 | [외부 발행 기록](tickets/PUBLISHING.md) | 대상·제목/본문·라벨·의존·실제 발행 상태 | Issue 20건 발행 완료 |

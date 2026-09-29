@@ -36,7 +36,7 @@ describe('guided learning preview (synthetic DOM, not OS IME acceptance)', () =>
     const user = userEvent.setup();
     render(<App contentMode="preview" />);
     const text = messages[locale];
-    await user.click(screen.getByRole('button', { name: text.start }));
+    await user.click(screen.getByRole('button', { name: language === 'vi' ? text.viStart : text.start }));
     expect(screen.getByRole('heading', { name: content[0].variants[language].targetText })).toHaveAttribute('lang', language);
     expect(document.documentElement.lang).toBe(locale);
     const translations = screen.getByLabelText(text.explanations);

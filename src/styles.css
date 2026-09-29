@@ -64,6 +64,8 @@ main { max-width: 1168px; padding: 0 2.5rem 3.5rem; margin: auto; }
 .stage-copy { flex: 1; display: flex; flex-direction: column; gap: .35rem; }
 .stage-copy strong { font-size: 1.12rem; }
 .stage-copy > span { color: var(--muted); font-size: .83rem; line-height: 1.6; }
+.stage-copy .stage-examples { display: flex; flex-wrap: wrap; gap: .3rem .55rem; margin-top: .2rem; color: var(--ink); }
+.stage-examples > span { padding: .1rem .4rem; background: rgba(224, 238, 227, .65); border-radius: .25rem; }
 .stage-copy small { margin-top: .25rem; color: var(--muted); font-size: .75rem; }
 .stage-glyph { font-family: "Batang", "AppleMyungjo", serif; font-size: 2.5rem; color: var(--teal); align-self: center; margin-right: .7rem; }
 .review-strip { margin-top: 2.5rem; padding: 1.7rem 2rem; background: #e5edde; border-radius: .6rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
@@ -181,7 +183,7 @@ legend { font-size: 1rem; font-weight: 700; padding: 0; margin-bottom: 1rem; }
   .target-workspace-jamo { gap: .75rem; }
   .translations { grid-template-columns: 1fr; gap: .3rem; }
   .translations p span { display: inline-block; min-width: 5.5rem; margin-right: .5rem; }
-  .input-area { grid-template-columns: 1fr; }
+  .input-area { grid-template-columns: minmax(0, 1fr); }
   .input-area .actions { grid-column: 1; grid-row: auto; }
   .meaning-options, .result-columns { grid-template-columns: 1fr; }
   .meaning-option { padding: 1rem; }

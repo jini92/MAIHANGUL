@@ -100,12 +100,57 @@ describe('content structure and provision boundary', () => {
     }
   });
 
+  it.each([
+    ['MH-C001', 'phụ âm', '자음', 'consonant', 'ㄱ', '한글 자음 ㄱ의 모양을 익혀요.'],
+    ['MH-C002', 'hình chữ', '글자 모양', 'letter shape', 'ㄴ', '한글 자음 ㄴ의 꺾인 모양을 익혀요.'],
+    ['MH-C003', 'nguyên âm', '모음', 'vowel', 'ㅏ', '한글 모음 ㅏ의 모양과 위치를 익혀요.'],
+    ['MH-C004', 'âm tiết', '음절', 'syllable', '가', '자음 ㄱ과 모음 ㅏ를 합쳐 한 음절을 만들어요.'],
+  ])('%s explains its Vietnamese term while preserving the Korean/English lesson boundary', (id, target, koMeaning, enMeaning, koTarget, koExplanation) => {
+    const concept = draftPack.concepts.find(c => c.id === id)!;
+    const { ko, en, vi } = concept.variants;
+    expect(vi.targetText).toBe(target);
+    expect(vi.explanations.ko).toContain(koMeaning);
+    expect(vi.explanations.en).toContain(enMeaning);
+    expect(vi.explanations.vi).toContain(enMeaning);
+    for (const explanation of Object.values(vi.explanations)) {
+      expect(explanation).toContain(target);
+      expect(explanation).not.toMatch(/[ㄱㄴㅏ]/u);
+    }
+    expect(vi.usageNote.ko).toContain('베트남어');
+    expect(vi.usageNote.en).toContain('Vietnamese');
+    expect(vi.usageNote.vi).toContain('tiếng Việt');
+    expect(vi.meaningTask).toBeNull();
+    expect(vi.audioRef).toBeNull();
+    expect(ko.targetText).toBe(koTarget);
+    expect(ko.explanations.ko).toBe(koExplanation);
+    expect(en.targetText).toBe(enMeaning);
+    expect(en.explanations).toEqual(ko.explanations);
+    expect(en.usageNote).toEqual(ko.usageNote);
+  });
+
+  it('keeps the mixed draft revisions and exact review scopes without manufacturing approval', () => {
+    const revised = new Set(['MH-C001', 'MH-C002', 'MH-C003', 'MH-C004']);
+    for (const concept of draftPack.concepts) {
+      const revision = revised.has(concept.id) ? 3 : 2;
+      expect(concept.revision).toBe(revision);
+      for (const [area, review] of Object.entries(concept.review)) {
+        expect(review.scope.split(';')[0]).toBe(`${concept.id}@${revision} ${area}`);
+        expect(review).toMatchObject({ status: 'draft', reviewer: null, reviewedAt: null, evidence: null });
+      }
+      if (revised.has(concept.id)) {
+        expect(concept.review.education.notes).toContain('개정 3');
+        expect(concept.review.vi.notes).toContain('개정 3');
+      }
+    }
+    expect(draftPack.packVersion).toBeNull();
+  });
+
   it('separates Korean option labels from particles in wrong-answer feedback', () => {
     const water = draftPack.concepts.find((c) => c.id === 'MH-C005')!;
     expect(water.variants.ko.meaningTask!.feedbackByOptionId.milk.ko).toBe('선택한 보기: 우유. 이 문제의 뜻: 물.');
     const school = draftPack.concepts.find((c) => c.id === 'MH-C010')!;
     expect(school.variants.vi.meaningTask!.feedbackByOptionId.home.ko).toBe('선택한 보기: 집. 이 문제의 뜻: 학교.');
-    expect(draftPack.concepts.every((c) => c.revision === 2 && Object.values(c.review).every((r) => r.status === 'draft'))).toBe(true);
+    expect(draftPack.concepts.every((c) => Object.values(c.review).every((r) => r.status === 'draft'))).toBe(true);
   });
 
   it('keeps native input targets NFC and preserves accents instead of silently rewriting them', () => {
